@@ -42,6 +42,7 @@ public class AplikasiPerhitunganDiskonFrame extends javax.swing.JFrame {
         keluarButton = new javax.swing.JButton();
         kodeKuponLabel = new javax.swing.JLabel();
         kodeKuponTextField = new javax.swing.JTextField();
+        diskonSlider = new javax.swing.JSlider();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,6 +102,16 @@ public class AplikasiPerhitunganDiskonFrame extends javax.swing.JFrame {
             }
         });
 
+        diskonSlider.setMajorTickSpacing(10);
+        diskonSlider.setMaximum(50);
+        diskonSlider.setPaintLabels(true);
+        diskonSlider.setPaintTicks(true);
+        diskonSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                diskonSliderStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -113,31 +124,33 @@ public class AplikasiPerhitunganDiskonFrame extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(hitungButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(keluarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(hargaAkhirLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(hargaAkhirTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(diskonLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                                .addComponent(diskonComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(keluarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(hargaAsliLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(hargaAsliTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(penghematanLabel)
-                                    .addComponent(kodeKuponLabel))
+                                .addComponent(diskonLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(penghematanTextField)
-                                    .addComponent(kodeKuponTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)))))
+                                    .addComponent(diskonSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                                    .addComponent(diskonComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(penghematanLabel)
+                                    .addComponent(kodeKuponLabel)
+                                    .addComponent(hargaAkhirLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(hargaAkhirTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(penghematanTextField)
+                                        .addComponent(kodeKuponTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addComponent(jLabel1)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,15 +164,17 @@ public class AplikasiPerhitunganDiskonFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(diskonLabel)
                     .addComponent(diskonComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addGap(28, 28, 28)
+                .addComponent(diskonSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hargaAkhirLabel)
-                    .addComponent(hargaAkhirTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                    .addComponent(hargaAkhirTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hargaAkhirLabel))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(penghematanLabel)
-                    .addComponent(penghematanTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                    .addComponent(penghematanTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(penghematanLabel))
+                .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kodeKuponLabel)
                     .addComponent(kodeKuponTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -174,11 +189,15 @@ public class AplikasiPerhitunganDiskonFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -189,23 +208,46 @@ public class AplikasiPerhitunganDiskonFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_hargaAkhirTextFieldActionPerformed
 
     private void hitungButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitungButtonActionPerformed
-         try {
+        try {
         // Ambil nilai dari harga asli
         double hargaAsli = Double.parseDouble(hargaAsliTextField.getText().trim());
 
-        // Dapatkan persentase diskon yang dipilih
-        int diskonPersen = Integer.parseInt(diskonComboBox.getSelectedItem().toString().replace("diskon ", "").replace("%", ""));
-        
+        // Tentukan nilai diskon berdasarkan pilihan user (ComboBox atau Slider)
+        int diskonPersen = 0;
+        // Memeriksa pilihan dari ComboBox
+        if (diskonComboBox.getSelectedItem() != null) {
+            String selectedDiskon = diskonComboBox.getSelectedItem().toString();
+            if (selectedDiskon.equals("diskon 10%")) {
+                diskonPersen = 10;
+            } else if (selectedDiskon.equals("diskon 20%")) {
+                diskonPersen = 20;
+            } else if (selectedDiskon.equals("diskon 30%")) {
+                diskonPersen = 30;
+            }
+        }
+
+        // Memeriksa nilai dari slider jika ComboBox tidak dipilih
+        if (diskonComboBox.getSelectedItem() == null) {
+            diskonPersen = diskonSlider.getValue();
+        }
+
+        // Ambil kode kupon
+        String kodeKupon = kodeKuponTextField.getText().trim();
+
+        // Cek kode kupon dan tambahkan diskon jika kode valid
+        if (kodeKupon.equalsIgnoreCase("DISC10")) {
+            diskonPersen += 10;  // Menambahkan 10% diskon tambahan
+            JOptionPane.showMessageDialog(this, "Kode Kupon DISC10 diterima! Diskon bertambah 10%", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
+        } else if (kodeKupon.equalsIgnoreCase("DISC20")) {
+            diskonPersen += 20;  // Menambahkan 20% diskon tambahan
+            JOptionPane.showMessageDialog(this, "Kode Kupon DISC20 diterima! Diskon bertambah 20%", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
+        } else if (!kodeKupon.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Kode Kupon tidak valid", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
         // Hitung penghematan dan harga akhir
         double penghematan = hargaAsli * diskonPersen / 100;
         double hargaAkhir = hargaAsli - penghematan;
-
-        // Tambahkan diskon jika kode kupon valid
-        String kodeKupon = kodeKuponTextField.getText().trim();
-        if (kodeKupon.equalsIgnoreCase("DISKON10")) { // Contoh kode kupon
-            penghematan += hargaAkhir * 0.10;
-            hargaAkhir -= hargaAkhir * 0.10;
-        }
 
         // Tampilkan hasil pada JTextField
         penghematanTextField.setText(String.format("%.2f", penghematan));
@@ -229,6 +271,13 @@ public class AplikasiPerhitunganDiskonFrame extends javax.swing.JFrame {
     private void kodeKuponTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kodeKuponTextFieldActionPerformed
         
     }//GEN-LAST:event_kodeKuponTextFieldActionPerformed
+
+    private void diskonSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_diskonSliderStateChanged
+       // Memeriksa apakah input harga asli tidak kosong
+    if (!hargaAsliTextField.getText().isEmpty()) {
+        hitungButtonActionPerformed(null); // Memanggil perhitungan otomatis
+    }
+    }//GEN-LAST:event_diskonSliderStateChanged
 
     /**
      * @param args the command line arguments
@@ -268,6 +317,7 @@ public class AplikasiPerhitunganDiskonFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> diskonComboBox;
     private javax.swing.JLabel diskonLabel;
+    private javax.swing.JSlider diskonSlider;
     private javax.swing.JLabel hargaAkhirLabel;
     private javax.swing.JTextField hargaAkhirTextField;
     private javax.swing.JLabel hargaAsliLabel;
